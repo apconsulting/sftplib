@@ -31,7 +31,7 @@ class FTPClient:
             self._conn.connect(self.host, self.port)
             self._conn.login(self.user, self.password)
         except:
-            raise InvalidConnection(f'Error connecting to {self.protocol.upper()} server')
+            raise InvalidConnection(f'Error connecting to FTP server')
 
     def _close_connection(self):
         if self._conn is not None:
