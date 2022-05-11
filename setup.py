@@ -13,7 +13,7 @@ setup(
     author='AP Consulting S.r.l.',
     author_email='areasviluppo@apconsulting.net',
     description=(
-        'A **very** simple SFTP and FTP client library'
+        'A very simple SFTP and FTP client library'
     ),
     license='MIT',
     url='https://github.com/apconsulting/sftplib',

@@ -16,24 +16,24 @@ class SFTPClient:
         self._conn = None
 
     def __enter__(self):
-        self._start_connection()
+        self.connect()
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        self._close_connection()
+        self.close()
 
     def __repr__(self):
         return f'<SFTPClient({self.host}, {self.user}, xxxx, port = {self.port})>'
 
-    def _start_connection(self):
+    def connect(self):
         try:
             self._transport = paramiko.Transport((self.host, self.port))
             self._transport.connect(None, self.user, self.password)
             self._conn = paramiko.SFTPClient.from_transport(self._transport)
         except:
-            raise InvalidConnection(f'Error connecting to {self.protocol.upper()} server')
+            raise InvalidConnection(f'Error connecting to SFTP server')
 
-    def _close_connection(self):
+    def close(self):
         if self._transport is not None:
             self._transport.close()
 

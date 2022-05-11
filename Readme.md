@@ -1,4 +1,4 @@
-sftplib - A **very** simple SFTP and FTP cient library
-======================================================
+sftplib - A **very** simple S/FTP client python package
+=======================================================
 
 Shamelessly copied (with minor modifications) from [qftplib](https://github.com/lfbos/qftplib)
