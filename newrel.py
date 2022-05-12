@@ -15,15 +15,12 @@ if match is None:
     sys.exit(1)
 
 
-# Check git status
-
-
 # Update version in pyproject.toml
 newContent = []
 with open("pyproject.toml") as f:
     for l in f:
         if l.startswith("version"):
-            newContent.append('version = "0.0.1"')
+            newContent.append(f'version = "{sys.argv[1]}"\n')
         else:
             newContent.append(l) 
 
@@ -38,4 +35,4 @@ os.system(f'git commit -a -m "New release {sys.argv[1]}"')
 os.system(f'git tag -a v{sys.argv[1]} -m "Release {sys.argv[1]}"')
 
 # Push changes
-#os.system(f'git push origin v{sys.argv[1]}"')
+os.system(f'git push origin v{sys.argv[1]}"')
